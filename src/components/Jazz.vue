@@ -22,7 +22,6 @@ export default {
       this.message = this.message.split("").reverse().join("");
     },
     fog() {
-      console.log(this.message1.match(/[fog]/gi) === null);
       this.message1 = this.message1.match(/[^fog]/gi).join("");
     },
   },
