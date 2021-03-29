@@ -4,6 +4,7 @@
     <Test />
     <Jazz />
     <JazzZwei />
+    <JazzDrei />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Calculator from "./components/Calculator.vue";
 import Test from "./components/HalloTest.vue";
 import Jazz from "./components/Jazz.vue";
 import JazzZwei from "./components/JazzZwei.vue";
+import JazzDrei from "./components/JazzDrei.vue";
 
 export default {
   name: "App",
@@ -20,6 +22,7 @@ export default {
     Test,
     Jazz,
     JazzZwei,
+    JazzDrei,
   },
 };
 </script>

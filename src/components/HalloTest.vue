@@ -1,12 +1,23 @@
 <template>
   <div class="title">
-    <h2>{{ title }}</h2>
-    <p>{{ author }}</p>
-    <p class="test-style">{{ age }}</p>
+    <div class="container">
+      <div v-if="showBooks" class="box box2">
+        <h2>{{ title }}</h2>
+        <p>{{ author }}</p>
+        <p class="test-style">{{ age }}</p>
+      </div>
 
-    <button @click="age++">Increase age</button>
-    <button @click="age--">Increase age</button>
-    <div @click="title = '!something else'">Change book title</div>
+      <div class="box box5">
+        <button @click="age++">Increase age</button>
+        <button @click="age--">Increase age</button>
+        <button @click="changeTitle('OAThbringer')">Change book title</button>
+        <button @click="toggleShowBooks">
+          <span v-if="showBooks">Hide Books</span>
+          <span v-else>Show Books</span>
+        </button>
+        <div v-show="showBooks">currently showing books</div>
+      </div>
+    </div>
 
     <div class="box-1"><div class="circle enlarge">Circle</div></div>
     <div class="box-2">
@@ -21,10 +32,19 @@
 export default {
   data() {
     return {
+      showBooks: true,
       title: "YOo, check this out, Test",
       author: "Brand Sander",
       age: 45,
     };
+  },
+  methods: {
+    changeTitle(title) {
+      this.title = title;
+    },
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks;
+    },
   },
 };
 </script>
