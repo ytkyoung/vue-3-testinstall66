@@ -18,6 +18,17 @@
         <div v-show="showBooks">currently showing books</div>
       </div>
     </div>
+    <div class="container">
+      <!-- mouse events -->
+      <div class="box box5" @mouseover="handleEvent($event, 5)">
+        mouseover (enter)
+      </div>
+      <div class="box box6" @mouseleave="handleEvent">mouseleave</div>
+      <div class="box box7" @dblclick="handleEvent">double click</div>
+      <div class="box box8" @mousemove="handleMousemove">
+        position - {{ x }} {{ y }}
+      </div>
+    </div>
 
     <div class="box-1"><div class="circle enlarge">Circle</div></div>
     <div class="box-2">
@@ -36,6 +47,8 @@ export default {
       title: "YOo, check this out, Test",
       author: "Brand Sander",
       age: 45,
+      x: 0,
+      y: 0,
     };
   },
   methods: {
@@ -44,6 +57,16 @@ export default {
     },
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
+    },
+    handleEvent(e, data) {
+      console.log(e, e.type);
+      if (data) {
+        console.log(data);
+      }
+    },
+    handleMousemove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
     },
   },
 };
