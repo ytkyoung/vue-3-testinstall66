@@ -8,7 +8,12 @@
 
       <div class="box box2">
         <ul>
-          <li v-for="book in books" :key="book.id" :class="{ fav: book.isFav }">
+          <li
+            v-for="book in books"
+            :key="book.id"
+            :class="{ fav: book.isFav }"
+            @click="toggleFav(book)"
+          >
             <h3>{{ book.title }}</h3>
             <img :src="book.img" :alt="book.title" />
             <p>{{ book.author }}</p>
@@ -87,7 +92,7 @@ export default {
         {
           title: "title TEST TEST TEST 444",
           author: "Test4 author",
-          img: "assets/git-pro-3.png",
+          img: "assets/git-pro-4.png",
           isFav: true,
         },
       ],
@@ -109,6 +114,9 @@ export default {
     handleMousemove(e) {
       this.x = e.offsetX;
       this.y = e.offsetY;
+    },
+    toggleFav(book) {
+      book.isFav = !book.isFav;
     },
   },
 };
@@ -183,8 +191,5 @@ export default {
 .reset-buttons {
   @extend %toolbelt;
   color: #cddc39;
-}
-.fav {
-  background: magenta;
 }
 </style>
