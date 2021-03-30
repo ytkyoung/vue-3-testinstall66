@@ -1,12 +1,27 @@
 <template>
   <div class="title">
     <div class="container">
+      <!-- attribute binding -->
+      <!-- <div class="box box7">
+        <a :href="url">edabit</a>
+      </div> -->
+
+      <div class="box box2">
+        <ul>
+          <li v-for="book in books" :key="book.id" :class="{ fav: book.isFav }">
+            <h3>{{ book.title }}</h3>
+            <img :src="book.img" :alt="book.title" />
+            <p>{{ book.author }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
       <div v-if="showBooks" class="box box2">
         <h2>{{ title }}</h2>
         <p>{{ author }}</p>
         <p class="test-style">{{ age }}</p>
       </div>
-
       <div class="box box5">
         <button @click="age++">Increase age</button>
         <button @click="age--">Increase age</button>
@@ -43,12 +58,39 @@
 export default {
   data() {
     return {
+      url: "https://edabit.com/challenge/zif8ugd3u2zHjMhsY",
       showBooks: true,
       title: "YOo, check this out, Test",
       author: "Brand Sander",
       age: 45,
       x: 0,
       y: 0,
+      books: [
+        {
+          title: "title test 1",
+          author: "Test author",
+          img: "assets/git-pro-1.png",
+          isFav: true,
+        },
+        {
+          title: "title Test Test 22",
+          author: "Test1 author",
+          img: "assets/git-pro-2.png",
+          isFav: false,
+        },
+        {
+          title: "title TEST TEST TEST 333",
+          author: "Test3 author",
+          img: "assets/git-pro-3.png",
+          isFav: false,
+        },
+        {
+          title: "title TEST TEST TEST 444",
+          author: "Test4 author",
+          img: "assets/git-pro-3.png",
+          isFav: true,
+        },
+      ],
     };
   },
   methods: {
@@ -141,5 +183,8 @@ export default {
 .reset-buttons {
   @extend %toolbelt;
   color: #cddc39;
+}
+.fav {
+  background: magenta;
 }
 </style>
